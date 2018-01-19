@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>The Best Platformer</title>
+
+  <style>
+	@font-face {
+		font-family: "GameFont";
+		src: url("/font.otf");
+	}
+  
+    body            { background: #111; color: white; font-family: GameFont;}
+	#info			{ margin: 1em auto 0; width: 896px; text-align: right}
+	#info span		{ padding: 0 10px;}
+    #platformer     { background-image: url('bg.png'); border-radius: 5px; margin: 0 auto; position: relative; width: 896px; height: 672px; }
+    #canvas         { display: none; z-index: 0; position: absolute; background-color: black; width: 100%; height: 100%; border-radius: 5px;}
+	#scoreboard		{ width:  896px; margin: 0 auto; text-align: center;}
+	table			{ width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 16px}
+	h1				{ border-bottom: 1px solid white; margin: 0px;}
+	td				{ border-bottom: 1px solid white; padding: 5px}
+	
+	input{
+		  z-index: 1;
+		  width: 730px;
+		  margin-left: 15px;
+		  border-radius: 3px;
+		  border: 1px solid transparent;
+		  border-top: none;
+		  border-bottom: 1px solid #DDD;
+		  box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+		  outline: 0;
+		  padding: 8px 6px;
+		  position: absolute;
+		  top: 50%;
+	}
+	
+	a.button {
+	  z-index: 2;
+	  margin: -3px 15px 0px 0px;
+	  cursor: pointer;
+	  display: inline-block;
+	  color: white;
+	  font-weight: 700;
+	  text-decoration: none;
+	  user-select: none;
+	  padding: .5em 2em;
+	  outline: none;
+	  border: 2px solid;
+	  border-radius: 4px;
+	  transition: 0.2s;
+	  position: absolute;
+	  top: 50%;
+	  right: 0;
+	} 
+	a.button:hover { background: rgba(255,255,255,.2); }
+	a.button:active { background: white; }
+  </style>
+</head>
+
+<body>
+	<div id="info">
+		<span>Time: <b id="time">0</b> | LvL: <b id="lvl">1</b> | Killed: <b id="score">0</b></span>
+	</div>
+	<div id="platformer">
+		<input type="text" name="nickname" placeholder="Nickname" id="nick" size="20"/><a onclick="Start()" class="button" id="start">Start</a>
+		
+		<canvas id="canvas"></canvas>
+	</div>
+
+	<div id="scoreboard">
+		<h1>Scoreboard</h1>
+		<table>
+			<colgroup>
+				<col width="30%">
+				<col width="40%">
+				<col width="15%">
+				<col width="15%">
+			</colgroup>
+			<thead style="background: #232222; font-weight: bolder;">
+				<tr>
+					<th>Date</th><th>Nickname</th><th>Monsters</th><th>Time</th>
+				</tr>
+			</thead>
+			<tbody id="records"></tbody>
+		</table>
+	</div>
+	
+	<script src="platformer.js"></script>
+</body>
+</html>
